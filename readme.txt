@@ -7,12 +7,31 @@ Instructor: Pedja Klasnja
 Title: National 'Stupid National Food Holiday' day
 
 Challenge Score: 16
-______________________________________
 
+______________________________________
 What does it do (in general):
 Presents users with the nearest upcoming national food holiday, a related recipe, and a 1-star (or 5-star) review for the recipe. Users can toggle between 1 or 5 star reviews. They can navigate forward ('Next Holiday') or backward ('Prior Holiday').
-______________________________________
 
+______________________________________
+How To Run
+
+Run 'control.py' to initiate this program.
+
+Once the DB is populated, launch '127.0.0.1:5000/reviews/1/1' in your browser.
+The structure of the url is: '/reviews/<day>/<rating>'. So, '/reviews/1/1' loads Today (1) and 1 star reviews (1). Tomorrow's 5-star reviews would be '/reviews/2/5'.
+
+______________________________________
+Python Modules
+
+requests
+json
+datetime
+bs4
+flask
+sqlite3
+sys
+
+______________________________________
 Structure/Process.
 
 1. 'holiday.py' uses BeautifulSoup to crawl and collect stupid food holidays (all 400+). This information is stored in a cache: 'holiday_cache.json'
@@ -25,19 +44,8 @@ Structure/Process.
 7. When users go beyond the +/- 12 days from Today, the program scrapes more reviews from the Bon Appetit website.
 
 ______________________________________
-Run 'control.py' to initiate this program.
+Data Storage
 
-Import the following python modules:
-requests
-json
-datetime
-bs4
-flask
-sqlite3
-sys
-
-______________________________________
-Data Storage:
 HolidayReviews.db
 bonAppetit_cache.json
 holidays_cache.json
@@ -55,7 +63,8 @@ The following two websites were accessed using Beautiful Soup. It is necessary t
   - "Holiday" string of the holiday name ie: National Pizza Day.
   - "Food" string, the holiday with 'national' and 'day' stripped, used as a search term in Bon Appetit website.
 - I used another table ('Calendar') to help ingest the Holidays. Many holidays occur on single dates.
-  **** Class definition: class Holiday was used to ingest data from the holiday website before insertion into the DB.
+
+**** Class definition: class Holiday was used to ingest data from the holiday website before insertion into the DB.
 
 2. https://www.bonappetit.com/ (8 challenge points)
 - I crawled this website using the "Food" column related to the holiday. The "Food" was input in the following url: https://www.bonappetit.com/search/FOOD?content=recipe
@@ -68,4 +77,5 @@ The following two websites were accessed using Beautiful Soup. It is necessary t
   - "Rating" int. either 1 or 5.
   - "Link" url for the recipe page
   - "Holiday" int. Foreign Key linked to Holiday.Id
-  **** Class definition: class Review was used to ingest data from Bon Appetit before insertion into the DB.
+
+**** Class definition: class Review was used to ingest data from Bon Appetit before insertion into the DB.
