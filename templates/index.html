@@ -9,18 +9,11 @@
     <body>
           <div class="nav">
           <form method="POST">
-          {% if rating == "1" %}
-            5 Star Review: <input type="radio" name="nav" value="5Star">
-          {% elif rating == "5" %}
-            1 Star Review: <input type="radio" name="nav" value="1Star">
-          {% else %}
-          {% endif %}
-
-            Prior Holiday: <input type="radio" name="nav" value="Prior">
-            Next Holiday: <input type="radio" name="nav" value="Next">
-
-            <input type="submit" name="nav" value="Go / Refresh">
+            <input type="submit" name="nav" value="Prior Holiday">
+            <input type="submit" name="nav" value="Next Holiday">
+            <br>
           </form>
+
           </div>
 
           <div class="heading">
@@ -31,22 +24,29 @@
           <div class="response">
           {% if error == False %}
             <!-- <h2>Celebrate the holiday with Bon Appetit</h2> -->
-            <h3>Here's what reviewers enjoyed about <a href={{href}}>{{recipe}}</a></h3>
+            <h3>Here's what reviewers enjoyed about <a href={{href}}>{{recipe}}</a>:</h3>
             <p class="review">{{review}}</p>
 
           {% elif error == True %}
                 {% if rating == "1" %}
                   <h2>Nobody on Bon Appetit dislikes this holiday.</h2>
-                  <p>Try naviating to 5 Star Reviews or another holiday.</p>
+                  <p>Try navigating to 5 Star Reviews or another holiday.</p>
                 {% elif rating == "5" %}
                   <h2>Nobody on Bon Appetit absolutely loves this holiday.</h2>
-                  <p>Try naviating to 1 Star Reviews or another holiday.</p>
+                  <p>Try navigating to 1 Star Reviews or another holiday.</p>
                 {% else %}
                 {% endif %}
           {% else %}
           {% endif %}
           </div>
-
+          <form method="POST">
+          {% if rating == "1" %}
+            <input type="submit" name="nav" value="Toggle 5 Star Reviews">
+          {% elif rating == "5" %}
+            <input type="submit" name="nav" value="Toggle 1 Star Reviews">
+          {% else %}
+          {% endif %}
+          </form>
           <div class="stars">
           {% if error == False %}
               {% if rating == "1" %}
@@ -71,8 +71,10 @@
               <img src="/static/star_grey_1.png">
           {% else %}
           {% endif %}
-              <p>don't celebrate without us...</p>
+              <p>...don't celebrate without us...</p>
           </div>
+          <p>Holidays courtesy of <a href="https://foodimentary.com/">Foodimentary</a></p>
+          <p>Reviews courtesy of the fine users of <a href="https://www.bonappetit.com/">Bon Appetit</a></p>
           <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   </body>
   </html>

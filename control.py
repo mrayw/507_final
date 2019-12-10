@@ -18,7 +18,7 @@ def reviews(day="1",rating="1"):
         review = select_reviews(day,rating)
 
     if request.method == 'POST':
-        if request.form['nav'] == "Next":
+        if request.form['nav'] == "Next Holiday":
             base = "/reviews/"
             if day == "365":
                 day_str = "1"
@@ -28,7 +28,7 @@ def reviews(day="1",rating="1"):
             new_url = base+day_str+rating
             return redirect(new_url)
 
-        elif request.form['nav'] == "Prior":
+        elif request.form['nav'] == "Prior Holiday":
             base = "/reviews/"
             if day == "1":
                 day_str = "365"
@@ -38,14 +38,14 @@ def reviews(day="1",rating="1"):
             new_url = base+day_str+rating
             return redirect(new_url)
 
-        elif request.form['nav'] == "5Star":
+        elif request.form['nav'] == "Toggle 5 Star Reviews":
             base = "/reviews/"
             day_str = day
             rating = "/5"
             new_url = base+day_str+rating
             return redirect(new_url)
 
-        elif request.form['nav'] == "1Star":
+        elif request.form['nav'] == "Toggle 1 Star Reviews":
             base = "/reviews/"
             day_str = day
             rating = "/1"

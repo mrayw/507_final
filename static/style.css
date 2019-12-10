@@ -14,10 +14,9 @@ body {
 
 form {
     padding: 1em;
+    padding-left: 20%;
 }
-/* input{
-  padding-right: 3em;
-} */
+
 
 h1 {
     font-family: 'Pacifico',cursive;
