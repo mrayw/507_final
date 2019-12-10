@@ -17,19 +17,30 @@ How To Run
 
 Run 'control.py' to initiate this program.
 
-Once the DB is populated, launch '127.0.0.1:5000/reviews/1/1' in your browser.
+Once the DB is populated, launch '127.0.0.1:5000/reviews/1/1' in your browser (it should launch automatically).
 The structure of the url is: '/reviews/<day>/<rating>'. So, '/reviews/1/1' loads Today (1) and 1 star reviews (1). Tomorrow's 5-star reviews would be '/reviews/2/5'.
 
 ______________________________________
-Python Modules
+Python Modules for virtual environment.
 
-requests
-json
-datetime
-bs4
-flask
-sqlite3
-sys
+from 'requirements.txt'
+
+beautifulsoup4==4.8.1
+certifi==2019.11.28
+chardet==3.0.4
+Click==7.0
+DateTime==4.3
+Flask==1.1.1
+idna==2.8
+itsdangerous==1.1.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
+pytz==2019.3
+requests==2.22.0
+soupsieve==1.9.5
+urllib3==1.25.7
+Werkzeug==0.16.0
+zope.interface==4.7.1
 
 ______________________________________
 Structure/Process.
