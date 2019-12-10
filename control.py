@@ -61,4 +61,4 @@ def reviews(day="1",rating="1"):
 
 if __name__ == '__main__':
     init_all()
-    app.run(debug=True)
+    app.run(debug=False)
