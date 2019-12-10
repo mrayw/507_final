@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-import sqlite3
+import sqlite3, webbrowser
 # from datetime import datetime
 from model import *
 
@@ -61,4 +61,5 @@ def reviews(day="1",rating="1"):
 
 if __name__ == '__main__':
     init_all()
+    webbrowser.open("127.0.0.1:5000/reviews/1/1")
     app.run(debug=False)
