@@ -31,7 +31,7 @@
           <div class="response">
           {% if error == False %}
             <!-- <h2>Celebrate the holiday with Bon Appetit</h2> -->
-            <h3>Here's what reviewers enjoyed about <a href=>{{recipe}}:</a></h3>
+            <h3>Here's what reviewers enjoyed about <a href={{href}}>{{recipe}}</a></h3>
             <p class="review">{{review}}</p>
 
           {% elif error == True %}
